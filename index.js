@@ -9,7 +9,7 @@ function scrapeImdb(cb) {
   got('http://www.imdb.com/chart/top', function (err, data) {
 
     if (err) {
-      return err;
+      return cb(err);
     }
 
     var ret = [];
@@ -21,15 +21,12 @@ function scrapeImdb(cb) {
     });    
     
     if (ret.length === 0) {
-      return new Error('Could not find any movie titles');
+      return cb( new Error('Could not find any movie titles') );
     }
 
     cb(ret);
-
   });
 }
-
-var imdb = scrapeImdb(function (ret) { JSON.stringify(ret); });
 
 app.use(bodyParser.json());
 
@@ -44,7 +41,9 @@ app.get("/", function (req, res) {
 });
 
 app.get("/imdb", function (req, res) {
-  res.send(imdb);
+  scrapeImdb(function (ret) {
+    res.send(ret);
+  });
 });
 
 console.log("Simple static server listening at http://localhost:" + port);
