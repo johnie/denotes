@@ -1,6 +1,7 @@
 var got = require('got'),
     cheerio = require('cheerio'),
     express = require('express'),
+    stylus = require('stylus'),
     bodyParser = require('body-parser'),
     app = express(),
     port = parseInt(process.env.PORT, 10) || 4000;
@@ -29,6 +30,8 @@ function scrapeImdb(cb) {
 }
 
 app.use(bodyParser.json());
+app.use(require('stylus').middleware(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));  
 
 app.use(function( req, res, next ) {
   res.type('application/json');

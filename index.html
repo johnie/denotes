@@ -2,29 +2,30 @@
 <html lang="en">
 <head>
 
-  <script type="text/javascript" src="http://www.google.com/jsapi"></script><script type="text/javascript">google.load("jquery", "1");</script>
+  <link rel="stylesheet" href="style/master.css">
 
   <title>Top 250 Movies</title>
   <meta charset="UTF-8">
 </head>
-<body>
+<body ng-app="imdb">
 
+  <ul id="movieList" ng-controller="MainController">
+    <!-- <li ng-repeat="movie in movies | limitTo: 10">{{ movie.title }}</li> -->
+    <li class="movie__item">The Shawshank Redemption</li>
+    <li class="movie__item">The Godfather</li>
+    <li class="movie__item">The Godfather: Part II</li>
+    <li class="movie__item">The Dark Knight</li>
+    <li class="movie__item">Pulp Fiction</li>
+    <li class="movie__item">The Good, the Bad and the Ugly</li>
+    <li class="movie__item">12 Angry Men</li>
+    <li class="movie__item">Schindler's List</li>
+    <li class="movie__item">The Lord of the Rings: The Return of the King</li>
+    <li class="movie__item">Fight Club</li>
+  </ul>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/async/0.9.0/async.js"></script>
-  <script>
-    $.ajax({
-        url: '/imdb',
-        type: 'get',
-        success: function (data) {
-          async.each(data, function (file, callback) {
-            $.getJSON("http://www.omdbapi.com/?i=" + data, function (item) {
-              sum += item.Title;
-              document.body.innerHTML = sum;
-            });
-          });
-        }
-      });
-  </script>
-  
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript">google.load("jquery", "1");</script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+  <script src="js/main.js"></script>  
 </body>
 </html>
