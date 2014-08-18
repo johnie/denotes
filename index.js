@@ -2,7 +2,7 @@ var got = require('got'),
     cheerio = require('cheerio'),
     express = require('express'),
     bodyParser = require('body-parser'),
-    app = express()
+    app = express(),
     port = parseInt(process.env.PORT, 10) || 4000;
 
 function scrapeImdb(cb) {  
