@@ -17,7 +17,10 @@
         type: 'get',
         success: function (data) {
           async.each(data, function (file, callback) {
-            console.log(file);
+            $.getJSON("http://www.omdbapi.com/?i=" + data, function (item) {
+              sum += item.Title;
+              document.body.innerHTML = sum;
+            });
           });
         }
       });
