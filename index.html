@@ -9,8 +9,18 @@
 </head>
 <body>
 
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/async/0.9.0/async.js"></script>
   <script>
-    
+    $.ajax({
+        url: '/imdb',
+        type: 'get',
+        success: function (data) {
+          async.each(data, function (file, callback) {
+            console.log(file);
+          });
+        }
+      });
   </script>
   
 </body>
