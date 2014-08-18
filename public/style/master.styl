@@ -3,5 +3,72 @@
 @import "lib/mixins.styl"
 @import "lib/helpers.styl"
 
+*, *:before, *:after
+  vendor('box-sizing', border-box)
+
 body
+  font 16px/1.68 normal $base-font-family
   background-color $base-ui-color
+  color #fff
+
+
+
+/**
+ * HEADER
+ */
+.header
+  display block
+  position relative
+
+  &__inner
+    padding 3em 0  
+    text-align center
+    @extends .cf
+
+.site-name
+  color $brand-color
+  font-weight normal
+  font-style italic
+  font-size 4em
+  line-height 1
+  margin 0
+
+.site-description
+  color #eee
+  font-weight normal
+  font-size 1.2em
+
+
+
+
+/**
+ * Movies List
+ */
+.movies
+  display -webkit-flex
+  display -moz-flex
+  display -ms-flex
+  display -o-flex
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content center
+  align-content stretch
+  align-items stretch
+  list-style none
+  margin 0
+  padding 0
+
+  &__item
+    text-align center
+    font-size .8em
+    background-color darken($base-ui-color, 35%)
+    color #eee
+    width 420px
+    padding 2em
+    margin 10px
+    vendor('border-radius', 4px)
+
+    &.done
+      background-color $brand-color
+      color $base-ui-color

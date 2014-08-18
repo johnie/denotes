@@ -1,5 +1,6 @@
 var got = require('got'),
     cheerio = require('cheerio'),
+    nunjucks = require('nunjucks'),
     express = require('express'),
     stylus = require('stylus'),
     bodyParser = require('body-parser'),
@@ -29,6 +30,19 @@ function scrapeImdb(cb) {
   });
 }
 
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app,
+  tags: {
+    blockStart: '<%',
+    blockEnd: '%>',
+    variableStart: '<$',
+    variableEnd: '$>',
+    commentStart: '<#',
+    commentEnd: '#>'
+  }
+});
+
 app.use(bodyParser.json());
 app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(__dirname + '/public'));  
@@ -40,7 +54,10 @@ app.use(function( req, res, next ) {
 
 app.get("/", function (req, res) {
   res.type('text/html');
-  res.sendFile(__dirname + '/index.html');
+  res.render('index.html', {
+    name: "Denotes",
+    title: "IMDb's Top 250 Movies"
+  });
 });
 
 app.get("/imdb", function (req, res) {

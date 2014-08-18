@@ -1,4 +1,4 @@
-var app = angular.module("imdb", []);
+var app = angular.module("denotes", []);
 
 app.controller('MainController', function ($scope, $http) {
 
@@ -11,7 +11,8 @@ app.controller('MainController', function ($scope, $http) {
     angular.forEach(data, function (value, key) {
       $.getJSON("http://www.omdbapi.com/?i=" + value, function (item) {
         $scope.movies.push({
-          title: item.Title
+          title: item.Title,
+          done: false
         });
         $scope.$digest();
       });

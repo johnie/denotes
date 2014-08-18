@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="style/master.css">
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700,400italic' rel='stylesheet' type='text/css'>
+
+  <title><$ name $> - <$ title $> </title>
+  <meta charset="UTF-8">
+</head>
+<body ng-app="denotes">
+
+  <header class="header" role="banner">
+    <div class="header__inner">
+      <h1 class="site-name"><$ name $></h1>
+      <h2 class="site-description"><$ title $></h2>
+    </div>
+    <!-- /.header__inner -->
+  </header>
+  <!-- /.header -->
+
+  <ul id="movieList" class="movies" ng-controller="MainController">
+    <li class="movies__item" ng-repeat="movie in movies | limitTo: 10">{{ movie.title }}</li>
+<!--     <li class="movies__item">The Shawshank Redemption</li>
+    <li class="movies__item">The Godfather</li>
+    <li class="movies__item">The Godfather: Part II</li>
+    <li class="movies__item">The Dark Knight</li>
+    <li class="movies__item">Pulp Fiction</li>
+    <li class="movies__item">The Good, the Bad and the Ugly</li>
+    <li class="movies__item">12 Angry Men</li>
+    <li class="movies__item">Schindler's List</li>
+    <li class="movies__item">The Lord of the Rings: The Return of the King</li>
+    <li class="movies__item">Fight Club</li>
+ -->  </ul>
+
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript">google.load("jquery", "1");</script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+  <script src="js/main.js"></script>  
+</body>
+</html>

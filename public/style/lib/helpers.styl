@@ -11,12 +11,6 @@
  * out over other selectors.
  */
 
-vendor(prop, val)
-  -webkit-{prop} val
-  -moz-{prop} val
-  -ms-{prop} val
-  {prop} val
-
 /**
  * Add/remove floats
  */
@@ -218,3 +212,11 @@ vendor(prop, val)
  */
 .caps
   text-transform: uppercase !important
+/**
+ * Clearfix
+ */
+.cf
+  &:after
+    content ''
+    display table
+    clear both
