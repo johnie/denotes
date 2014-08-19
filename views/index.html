@@ -40,9 +40,8 @@
       <div class="movies__description">
         <p class="movies__title">{{ movie.title | truncate }}</p>
         <p class="movies__genre">{{ movie.genre }}</p>
-        <p class="movies__runtime">{{ movie.runtime }}</p>
+        <p class="movies__runtime">{{ movie.runtime }} • {{ movie.imdbRating }}</p>
       </div>
-      <span style="opacity: 0; display: none;">{{ movie.imdbRating }}</span>
     </li>
   </ul>
 
