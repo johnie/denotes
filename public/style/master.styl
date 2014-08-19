@@ -44,7 +44,6 @@ body
   font-size 1.2em
 
 
-
 /**
  * Main navigation
  */
@@ -149,6 +148,54 @@ body
     color #eee
     margin 0
     line-height 1.5
+
+
+
+/**
+ * Popover
+ */
+.movies__popover
+  position absolute
+  top 0
+  left 110%
+  background-color rgba(238, 238, 238, .9);
+  z-index 10
+  width 400px
+  padding 1em 2em
+  color $base-ui-color
+  vendor('border-radius', 4px)
+  vendor('transition', all 0.25s ease-out)
+  opacity 0
+  visibility hidden
+
+  &:before
+    content ''
+    display block
+    width 0
+    height 0
+    border 7px solid transparent
+    border-right-color #eee
+    position absolute
+    top 10px
+    left -14px
+    opacity .9
+
+  &.active
+    visibility visible
+    opacity 1
+
+.popover__title
+  margin-bottom 0
+  @extends .cf
+
+.popover__runtime
+  float right
+  font-weight normal
+
+.popover__genre
+  margin 0
+  margin-bottom 1em
+
 
 // &:before
 //   content ''

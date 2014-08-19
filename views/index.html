@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+
   <link rel="stylesheet" href="style/master.css">
   <link href='http://fonts.googleapis.com/css?family=Merriweather:300,400italic|Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 
@@ -33,7 +35,9 @@
     <li class="movies__item" 
         ng-class="{ true: 'done'}[movie.done]" 
         ng-click="movie.done = !movie.done" 
-        ng-repeat="movie in movies | limitTo: limit | orderBy:imdbRating:reverse">
+        ng-repeat="movie in movies | limitTo: limit | orderBy:imdbRating:reverse"
+        ng-mouseenter="popover = true"
+        ng-mouseleave="popover = false">
       <figure class="movies__image">
         <img ng-src="{{ movie.post }}" alt="{{ movie.title }}">
       </figure>
@@ -42,6 +46,15 @@
         <p class="movies__genre">{{ movie.genre }}</p>
         <p class="movies__runtime">{{ movie.runtime }} • {{ movie.imdbRating }}</p>
       </div>
+
+      <aside class="movies__popover" ng-class="{active: popover}">
+        <h3 class="popover__title">{{ movie.title }} <span class="popover__runtime">{{ movie.runtime }}</span></h3>
+        <p class="popover__genre">{{ movie.genre }}</p>
+
+        <p class="popover__plot">{{ movie.plot}} </p>
+
+        <p class="popover__director"><strong>Director: </strong>{{ movie.director }}</p>
+      </aside>
     </li>
   </ul>
 

@@ -398,6 +398,7 @@ th {
 .search:after,
 .movies:after,
 .movies__image:after,
+.popover__title:after,
 .footer:after {
   content: '';
   display: table;
@@ -709,6 +710,56 @@ body {
   color: #eee;
   margin: 0;
   line-height: 1.5;
+}
+/**
+ * Popover
+ */
+.movies__popover {
+  position: absolute;
+  top: 0;
+  left: 110%;
+  background-color: rgba(238,238,238,0.9);
+  z-index: 10;
+  width: 400px;
+  padding: 1em 2em;
+  color: #1d2327;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -ms-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.movies__popover:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-right-color: #eee;
+  position: absolute;
+  top: 10px;
+  left: -14px;
+  opacity: 0.9;
+}
+.movies__popover.active {
+  visibility: visible;
+  opacity: 1;
+}
+.popover__title {
+  margin-bottom: 0;
+}
+.popover__runtime {
+  float: right;
+  font-weight: normal;
+}
+.popover__genre {
+  margin: 0;
+  margin-bottom: 1em;
 }
 /**
  * Footer
