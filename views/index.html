@@ -9,33 +9,50 @@
   <meta charset="UTF-8">
 </head>
 <body ng-app="denotes">
+<div class="site" ng-controller="MainController">
 
   <header class="header" role="banner">
     <div class="header__inner">
+      <nav class="main-nav" role="navigation">
+        <button class="main-nav__btn" aria-label="Toggle main menu">Menu</button>
+      </nav>
+
       <h1 class="site-name"><$ name $></h1>
       <h2 class="site-description"><$ title $></h2>
+
+      <div class="search">
+        <button class="search__btn" aria-label="Filter through result by name">Filter Search</button>
+      </div>
+    
     </div>
     <!-- /.header__inner -->
   </header>
   <!-- /.header -->
 
-  <ul id="movieList" class="movies" ng-controller="MainController">
-    <li class="movies__item" ng-class="{ true: 'done'}[movie.done]" ng-click="movie.done = !movie.done" ng-repeat="movie in movies | limitTo: 100 | orderBy:imdbRating:reverse">{{ movie.title }} - {{ movie.imdbRating }}</li>
-<!--     <li class="movies__item">The Shawshank Redemption</li>
-    <li class="movies__item">The Godfather</li>
-    <li class="movies__item">The Godfather: Part II</li>
-    <li class="movies__item">The Dark Knight</li>
-    <li class="movies__item">Pulp Fiction</li>
-    <li class="movies__item">The Good, the Bad and the Ugly</li>
-    <li class="movies__item">12 Angry Men</li>
-    <li class="movies__item">Schindler's List</li>
-    <li class="movies__item">The Lord of the Rings: The Return of the King</li>
-    <li class="movies__item">Fight Club</li>
- -->  </ul>
+  <ul id="movieList" class="movies" directive-when-scrolled="loadMore()">
+    <li class="movies__item" 
+        ng-class="{ true: 'done'}[movie.done]" 
+        ng-click="movie.done = !movie.done" 
+        ng-repeat="movie in movies | limitTo: limit | orderBy:imdbRating:reverse">
+      <img ng-src="{{ movie.post }}" alt="{{ movie.title }}" class="movies__image"> 
+      {{ movie.title | truncate }}
+      {{ movie.imdbRating }}
+    </li>
+  </ul>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="copyright"><$ name $> is created with <span>♥</span> by <$ author $></p>
+    </div>
+  </footer>
+
+</div>
+<!-- /.site -->
 
   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
   <script type="text/javascript">google.load("jquery", "1");</script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+  <script src="js/loading-bar.min.js"></script>  
   <script src="js/main.js"></script>  
 </body>
 </html>

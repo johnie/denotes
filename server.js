@@ -56,7 +56,8 @@ app.get("/", function (req, res) {
   res.type('text/html');
   res.render('index.html', {
     name: "Denotes",
-    title: "IMDb's Top 250 Movies"
+    title: "IMDb's Top 250 Movies",
+    author: "Johnie Hjelm"
   });
 });
 
