@@ -17,11 +17,15 @@ app.controller('MainController', function ($scope, $http, cfpLoadingBar) {
       cfpLoadingBar.complete();
       $.getJSON("http://www.omdbapi.com/?i=" + value, function (item) {
         var poster = item.Poster.split('_V1_SX300.jpg'),
-            smallPoster = poster[0] + "_V1_SX150_AL_.jpg";
+            smallPoster = poster[0] + "_V1_SX180_AL_.jpg";
         $scope.movies.push({
           title: item.Title,
-          imdbRating: item.imdbRating,
+          genre: item.Genre,
+          runtime: item.Runtime,
+          director: item.Director,
+          plot: item.Plot,
           post: smallPoster,
+          imdbRating: item.imdbRating,
           done: false
         });
         $scope.$digest();

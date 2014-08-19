@@ -8,7 +8,7 @@
   vendor('box-sizing', border-box)
 
 body
-  font 16px/1.68 normal $base-font-family
+  font 16px/1.68 normal $body-font-family
   background-color $base-ui-color
   color #fff
 
@@ -19,16 +19,18 @@ body
  */
 .header
   display block
+  padding 0em 1em
 
   &__inner
     max-width 1250px
     margin 0 auto
     position relative
-    padding 3em 0  
+    padding 3em 0
     text-align center
     @extends .cf
 
 .site-name
+  font-family $base-font-family
   color $brand-color
   font-weight normal
   font-style italic
@@ -37,8 +39,9 @@ body
   margin 0
 
 .site-description
+  font-family $base-font-family
   color #eee
-  font-weight normal
+  font-weight 300
   font-size 1.2em
 
 
@@ -102,15 +105,13 @@ body
   @extends .cf
 
   &__item
-    text-align center
-    font-size .8em
-    background-color darken($base-ui-color, 35%)
+    text-align left
     color #eee
-    width 420px
-    padding 2em
-    margin 10px
-    vendor('border-radius', 4px)
+    width 180px
+    padding 0
+    margin 20px 15px
     position relative
+    font-size 13px
 
     &.done:before
       content ''
@@ -125,10 +126,42 @@ body
 
   &__image
     display block
-    margin 0 auto
-    margin-bottom 2em
+    width 100%
+    height 270px
+    padding 0
+    margin 0
+    margin-bottom 10px
     @extends .cf
 
+    img
+      display block
+      width 100%
+      height 100%
+      vendor('border-radius', 4px)
+
+  &__title
+    font-weight 600
+    color #fff
+    margin 0
+    line-height 1.5
+
+  &__genre, &__runtime
+    font-weight 300
+    color #eee
+    margin 0
+    line-height 1.5
+
+// &:before
+//   content ''
+//   display block
+//   background transparent url('../images/clock.svg') center center no-repeat
+//   background-size 100%
+//   width 1em
+//   height 1em
+//   position absolute
+//   top 50%
+//   left -1em
+//   vendor('transform', translateY(-50%))
 
 
 /**

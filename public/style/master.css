@@ -563,7 +563,7 @@ th {
   box-sizing: border-box;
 }
 body {
-  font: 16px/1.68 normal "Merriweather", Georgia, Serif;
+  font: 16px/1.68 normal "Source Sans Pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, arial, sans-serif;
   background-color: #1d2327;
   color: #fff;
 }
@@ -572,6 +572,7 @@ body {
  */
 .header {
   display: block;
+  padding: 0em 1em;
 }
 .header__inner {
   max-width: 1250px;
@@ -581,6 +582,7 @@ body {
   text-align: center;
 }
 .site-name {
+  font-family: "Merriweather", Georgia, Serif;
   color: #f1c40f;
   font-weight: normal;
   font-style: italic;
@@ -589,8 +591,9 @@ body {
   margin: 0;
 }
 .site-description {
+  font-family: "Merriweather", Georgia, Serif;
   color: #eee;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 1.2em;
 }
 /**
@@ -659,18 +662,13 @@ body {
   padding: 0;
 }
 .movies__item {
-  text-align: center;
-  font-size: 0.8em;
-  background-color: #131719;
+  text-align: left;
   color: #eee;
-  width: 420px;
-  padding: 2em;
-  margin: 10px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
+  width: 180px;
+  padding: 0;
+  margin: 20px 15px;
   position: relative;
+  font-size: 13px;
 }
 .movies__item.done:before {
   content: '';
@@ -685,8 +683,33 @@ body {
 }
 .movies__image {
   display: block;
-  margin: 0 auto;
-  margin-bottom: 2em;
+  width: 100%;
+  height: 270px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.movies__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+}
+.movies__title {
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.5;
+}
+.movies__genre,
+.movies__runtime {
+  font-weight: 300;
+  color: #eee;
+  margin: 0;
+  line-height: 1.5;
 }
 /**
  * Footer
