@@ -67,5 +67,17 @@ app.get("/imdb", function (req, res) {
   });
 });
 
+
+/**
+ * Fix this
+ */
+app.get("/imdb/:movieId", function (req, res) {
+  scrapeImdb(function (ret) {
+    res.send({
+      movieId: req.params.movieId
+    });
+  });
+});
+
 console.log("Simple static server listening at http://localhost:" + port);
 app.listen(port);
