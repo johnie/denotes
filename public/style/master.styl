@@ -68,7 +68,15 @@ body
     padding 2em
     margin 10px
     vendor('border-radius', 4px)
+    position relative
 
-    &.done
-      background-color $brand-color
-      color $base-ui-color
+    &.done:before
+      content ''
+      display block
+      width 1.5em
+      height 1.5em
+      background transparent url('../images/star.svg') center center no-repeat
+      background-size 100%
+      position absolute
+      top -.5em
+      left -.5em

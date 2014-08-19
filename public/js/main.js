@@ -12,6 +12,7 @@ app.controller('MainController', function ($scope, $http) {
       $.getJSON("http://www.omdbapi.com/?i=" + value, function (item) {
         $scope.movies.push({
           title: item.Title,
+          imdbRating: item.imdbRating,
           done: false
         });
         $scope.$digest();

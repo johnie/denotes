@@ -20,7 +20,7 @@
   <!-- /.header -->
 
   <ul id="movieList" class="movies" ng-controller="MainController">
-    <li class="movies__item" ng-repeat="movie in movies | limitTo: 10">{{ movie.title }}</li>
+    <li class="movies__item" ng-class="{ true: 'done'}[movie.done]" ng-click="movie.done = !movie.done" ng-repeat="movie in movies | limitTo: 100 | orderBy:imdbRating:reverse">{{ movie.title }} - {{ movie.imdbRating }}</li>
 <!--     <li class="movies__item">The Shawshank Redemption</li>
     <li class="movies__item">The Godfather</li>
     <li class="movies__item">The Godfather: Part II</li>
