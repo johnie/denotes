@@ -4,7 +4,7 @@
 
   <link rel="icon" type="image/png" href="images/favicon.ico">
 
-  <link rel="stylesheet" href="style/master.css">
+  <link rel="stylesheet" href="style/master.min.css">
   <link href='http://fonts.googleapis.com/css?family=Merriweather:300,400italic|Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 
   <title><$ name $> - <$ title $> </title>
@@ -69,8 +69,8 @@
           <li><a href>Drama</a></li>
           <li><a href>Adventure</a></li>
           <li><a href>Thriller</a></li> -->
-          <li><a class="filter__btn filter--ascending" href>Ascending</a></li>
-          <li><a class="filter__btn filter--descending" href>Descending</a></li>
+          <li><a class="filter__btn filter--ascending" href ng-class="{active: predicate == '-imdbRating'}" ng-click="predicate = '-imdbRating'; limit = 250; reverse=false">Ascending</a></li>
+          <li><a class="filter__btn filter--descending" href ng-class="{active: predicate == 'imdbRating'}" ng-click="predicate = 'imdbRating'; limit = 250; reverse=false">Descending</a></li>
         </ul>
       </nav>
     </div>
@@ -82,7 +82,7 @@
     <li class="movies__item" 
         ng-class="{ true: 'done'}[movie.done]" 
         ng-click="movie.done = !movie.done" 
-        ng-repeat="movie in movies | limitTo: limit | orderBy:imdbRating:reverse"
+        ng-repeat="movie in movies | limitTo: limit | orderBy:predicate:reverse"
         ng-mouseenter="popover = true"
         ng-mouseleave="popover = false">
       <figure class="movies__image">

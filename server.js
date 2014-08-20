@@ -2,7 +2,6 @@ var got = require('got'),
     cheerio = require('cheerio'),
     nunjucks = require('nunjucks'),
     express = require('express'),
-    stylus = require('stylus'),
     bodyParser = require('body-parser'),
     app = express(),
     MovieDb = require('./movie_db'),
@@ -24,7 +23,6 @@ nunjucks.configure('views', {
 var db = new MovieDb("./movies.json", 0);
 
 app.use(bodyParser.json());
-app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(__dirname + '/public'));
 
 app.use(function( req, res, next ) {
@@ -36,7 +34,7 @@ app.get("/", function (req, res) {
   res.type('text/html');
   res.render('index.html', {
     name: "Denotes",
-    title: "IMDb's Top 250 Movies",
+    title: "Encouraging you to watch the worlds 250 best movies",
     author: "Johnie Hjelm"
   });
 });
