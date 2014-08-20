@@ -83,6 +83,111 @@ body
     display block
 
 
+
+
+
+/**
+ * Actions
+ */
+.actions
+  display block
+  padding 15px 35px 40px
+  @extends .cf
+
+  &__inner
+    @extends .cf
+
+  &__nav
+    display block
+    
+    ul
+      padding 0
+      margin 0
+      list-style none
+
+      li
+        display inline-block
+
+        a
+          color #ccc
+          text-decoration none
+          font-weight 600
+          letter-spacing 1px
+          display inline-block
+          font-size 14px
+          line-height 2.4
+          padding 0 1.5em
+          border 3px solid #ccc
+          vendor('border-radius', 5em)
+          vendor('transition', all .2s ease)
+
+          &:hover
+            border-color $brand-color
+            color #fff
+
+          &.active
+            color #fff
+            border-color $brand-color
+  
+  &--sort
+    float left
+
+    a
+      margin-right 1em
+
+  &--filter
+    float right
+
+    a
+      margin-left 1em
+
+.filter__select
+  position relative
+
+  &:after
+    position absolute
+    top 50%
+    right 1.25rem
+    display inline-block
+    content ""
+    width 0
+    height 0
+    pointer-events none
+    border-top .35rem solid #ccc
+    border-right .35rem solid transparent
+    border-bottom .35rem solid transparent
+    border-left .35rem solid transparent
+
+  select
+    vendor('appearance', none)
+    background transparent
+    color #ccc
+    font-weight 600
+    letter-spacing 1px
+    display inline-block
+    font-size 14px
+    line-height 2.4
+    padding 0 2.5em 0 1.5em
+    border 3px solid #ccc
+    vendor('border-radius', 5em)
+    outline none
+
+.filter__btn
+  text-indent -9999px
+  line-height 1
+  padding 0 !important
+  height 2.85em
+  width 2.85em
+  background-size 45%
+  background-position center center
+  background-repeat no-repeat
+
+.filter--ascending
+  background-image url('../images/sort-ascending.svg')
+
+.filter--descending
+  background-image url('../images/sort-descending.svg')
+
 /**
  * Movies List
  */
@@ -114,13 +219,13 @@ body
     &.done:before
       content ''
       display block
-      width 1.5em
-      height 1.5em
+      width 2.5em
+      height 2.5em
       background transparent url('../images/star.svg') center center no-repeat
       background-size 100%
       position absolute
-      top -.5em
-      left -.5em
+      top -1.3em
+      left -1em
 
   &__image
     display block

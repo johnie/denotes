@@ -36,6 +36,13 @@ app.controller('MainController', function ($scope, $http, cfpLoadingBar) {
     cfpLoadingBar.complete();
   });
 
+  // $http({
+  //   method: 'GET',
+  //   url: '/imdb/all'
+  // }).success(function (datas) {
+  //   console.log(datas.tt0012349);
+  // });
+
 });
 
 app.directive("directiveWhenScrolled", function() {

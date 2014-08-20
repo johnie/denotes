@@ -56,7 +56,7 @@ module.exports = function(localPath, updateInterval) {
         movies[k] = movie;
       }
 
-      done(null, movies)
+      done(null, movies);
     });
   }
 

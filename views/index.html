@@ -31,6 +31,53 @@
   </header>
   <!-- /.header -->
 
+  <aside class="actions">
+    <div class="actions__inner">
+      <nav class="actions__nav actions--sort">
+        <ul>
+          <li ng-class="{'active' : show == 'All' }" ng-click="show='All'">
+            <a class="active" href>All</a>
+          </li>
+          <li ng-class="{'active' : show == 'Incomplete' }" ng-click="show='Incomplete'">
+            <a href>Incomplete</a>
+          </li>
+          <li ng-class="{'active' : show == 'Complete' }" ng-click="show='Complete'">
+            <a href>Complete</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="actions__nav actions--filter">
+        <ul>
+          <li>
+            <label class="filter__select">
+              <select>
+                <option selected>Filter by genre</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Action">Action</option>
+                <option value="Drama">Drama</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Crime">Crime</option>
+                <option value="Western">Western</option>
+              </select>
+            </label>
+          </li>
+          <!-- <li><a class="active" href>Show all</a></li>
+          <li><a href>Comedy</a></li>
+          <li><a href>Action</a></li>
+          <li><a href>Drama</a></li>
+          <li><a href>Adventure</a></li>
+          <li><a href>Thriller</a></li> -->
+          <li><a class="filter__btn filter--ascending" href>Ascending</a></li>
+          <li><a class="filter__btn filter--descending" href>Descending</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- /.actions__inner -->
+  </aside>
+  <!-- /.actions -->
+
   <ul id="movieList" class="movies" directive-when-scrolled="loadMore()">
     <li class="movies__item" 
         ng-class="{ true: 'done'}[movie.done]" 

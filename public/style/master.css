@@ -396,6 +396,8 @@ th {
 .header__inner:after,
 .main-nav:after,
 .search:after,
+.actions:after,
+.actions__inner:after,
 .movies:after,
 .movies__image:after,
 .popover__title:after,
@@ -644,6 +646,116 @@ body {
   display: block;
 }
 /**
+ * Actions
+ */
+.actions {
+  display: block;
+  padding: 15px 35px 40px;
+}
+.actions__nav {
+  display: block;
+}
+.actions__nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.actions__nav ul li {
+  display: inline-block;
+}
+.actions__nav ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 2.4;
+  padding: 0 1.5em;
+  border: 3px solid #ccc;
+  -webkit-border-radius: 5em;
+  -moz-border-radius: 5em;
+  -ms-border-radius: 5em;
+  border-radius: 5em;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.actions__nav ul li a:hover {
+  border-color: #f1c40f;
+  color: #fff;
+}
+.actions__nav ul li a.active {
+  color: #fff;
+  border-color: #f1c40f;
+}
+.actions--sort {
+  float: left;
+}
+.actions--sort a {
+  margin-right: 1em;
+}
+.actions--filter {
+  float: right;
+}
+.actions--filter a {
+  margin-left: 1em;
+}
+.filter__select {
+  position: relative;
+}
+.filter__select:after {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  display: inline-block;
+  content: "";
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-top: 0.35rem solid #ccc;
+  border-right: 0.35rem solid transparent;
+  border-bottom: 0.35rem solid transparent;
+  border-left: 0.35rem solid transparent;
+}
+.filter__select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  background: transparent;
+  color: #ccc;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 2.4;
+  padding: 0 2.5em 0 1.5em;
+  border: 3px solid #ccc;
+  -webkit-border-radius: 5em;
+  -moz-border-radius: 5em;
+  -ms-border-radius: 5em;
+  border-radius: 5em;
+  outline: none;
+}
+.filter__btn {
+  text-indent: -9999px;
+  line-height: 1;
+  padding: 0 !important;
+  height: 2.85em;
+  width: 2.85em;
+  background-size: 45%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.filter--ascending {
+  background-image: url("../images/sort-ascending.svg");
+}
+.filter--descending {
+  background-image: url("../images/sort-descending.svg");
+}
+/**
  * Movies List
  */
 .movies {
@@ -673,13 +785,13 @@ body {
 .movies__item.done:before {
   content: '';
   display: block;
-  width: 1.5em;
-  height: 1.5em;
+  width: 2.5em;
+  height: 2.5em;
   background: transparent url("../images/star.svg") center center no-repeat;
   background-size: 100%;
   position: absolute;
-  top: -0.5em;
-  left: -0.5em;
+  top: -1.3em;
+  left: -1em;
 }
 .movies__image {
   display: block;
