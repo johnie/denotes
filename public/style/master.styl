@@ -157,10 +157,10 @@ body
 .movies__popover
   position absolute
   top 0
-  left 110%
+  left 90%
   background-color rgba(238, 238, 238, .9);
   z-index 10
-  width 400px
+  width 380px
   padding 1em 2em
   color $base-ui-color
   vendor('border-radius', 4px)
@@ -184,13 +184,19 @@ body
     visibility visible
     opacity 1
 
+  &.move-left
+    background-color red !important
+
 .popover__title
   margin-bottom 0
+  line-height 1.2
   @extends .cf
 
 .popover__runtime
-  float right
   font-weight normal
+
+  &:before
+    content ' / '
 
 .popover__genre
   margin 0

@@ -717,10 +717,10 @@ body {
 .movies__popover {
   position: absolute;
   top: 0;
-  left: 110%;
+  left: 90%;
   background-color: rgba(238,238,238,0.9);
   z-index: 10;
-  width: 400px;
+  width: 380px;
   padding: 1em 2em;
   color: #1d2327;
   -webkit-border-radius: 4px;
@@ -750,12 +750,18 @@ body {
   visibility: visible;
   opacity: 1;
 }
+.movies__popover.move-left {
+  background-color: #f00 !important;
+}
 .popover__title {
   margin-bottom: 0;
+  line-height: 1.2;
 }
 .popover__runtime {
-  float: right;
   font-weight: normal;
+}
+.popover__runtime:before {
+  content: ' / ';
 }
 .popover__genre {
   margin: 0;
