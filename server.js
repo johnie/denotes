@@ -51,7 +51,7 @@ app.get("/imdb/all", function (req, res) {
 
 
 app.get("/imdb/:movieId", function (req, res) {
-  res.send(JSON.stringify(db.movies[req.params.movieId]));
+  res.send(db.movies[req.params.movieId]);
 });
 
 console.log("Denotes listening at http://localhost:" + port);
