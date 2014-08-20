@@ -52,7 +52,7 @@ module.exports = function(localPath, updateInterval) {
       ];
       for (var k in data) {
         var movie = JSON.parse(data[k]);
-        for (var u in useless) delete movie[u];
+        for (var u in useless) delete movie[useless[u]];
         movies[k] = movie;
       }
 
