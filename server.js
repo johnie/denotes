@@ -45,6 +45,10 @@ app.get("/imdb", function (req, res) {
   res.send(Object.keys(db.movies));
 });
 
+app.get("/imdb/all", function (req, res) {
+  res.send(db.movies);
+});
+
 
 /**
  * Fix this
