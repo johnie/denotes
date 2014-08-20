@@ -43,8 +43,11 @@ module.exports = function(localPath, updateInterval) {
       if (err) return done(err);
 
       var movies = {};
+      var useless = [];
       for (var k in data) {
-        movies[k] = JSON.parse(data[k]);
+        var movie = JSON.parse(data[k]);
+        for (var u in useless) delete movie[u];
+        movies[k] = movie;
       }
 
       done(null, movies)
