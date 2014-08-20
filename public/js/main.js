@@ -7,15 +7,15 @@ app.controller('MainController', function ($scope, $http, cfpLoadingBar) {
   $scope.loadMore = function () {
     $scope.limit += 50;
   };
-  $scope.loadMore(); 
+  $scope.loadMore();
 
   $http({
-    method: 'GET', 
+    method: 'GET',
     url: '/imdb'
   }).success(function (data) {
     angular.forEach(data, function (value, key) {
       cfpLoadingBar.complete();
-      $.getJSON("http://www.omdbapi.com/?i=" + value, function (item) {
+      $.getJSON("/imdb/" + value, function (item) {
         var poster = item.Poster.split('_V1_SX300.jpg'),
             smallPoster = poster[0] + "_V1_SX180_AL_.jpg";
         $scope.movies.push({
