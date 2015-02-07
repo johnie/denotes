@@ -20,7 +20,7 @@ nunjucks.configure('views', {
   }
 });
 
-var db = new MovieDb("./movies.json", 0);
+var db = new MovieDb("./movies.json", 36000);
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));

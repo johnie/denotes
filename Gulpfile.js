@@ -78,10 +78,8 @@ gulp.task('js', function() {
 
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
-    proxy: {
-      proxy: "localhost:4000",
-      notify: false
-    }
+    proxy: "localhost:4000",
+    notify: false
   });
 });
 

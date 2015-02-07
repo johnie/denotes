@@ -8,6 +8,7 @@ app.controller('MainController', function ($scope, $http, cfpLoadingBar) {
     $scope.limit += 50;
   };
   $scope.loadMore();
+  $scope.show = "All";
 
   $http({
     method: 'GET',
@@ -36,13 +37,18 @@ app.controller('MainController', function ($scope, $http, cfpLoadingBar) {
     cfpLoadingBar.complete();
   });
 
-  // $http({
-  //   method: 'GET',
-  //   url: '/imdb/all'
-  // }).success(function (datas) {
-  //   console.log(datas.tt0012349);
-  // });
-
+  /* Filter Function for All | Incomplete | Complete */
+  $scope.showFn = function  (todo) {
+    if ($scope.show === "All") {
+      return true;
+    }else if(todo.done && $scope.show === "Complete"){
+      return true;
+    }else if(!todo.done && $scope.show === "Incomplete"){
+      return true;
+    }else{
+      return false;
+    }
+  };
 });
 
 app.directive("directiveWhenScrolled", function() {
@@ -55,6 +61,13 @@ app.directive("directiveWhenScrolled", function() {
       }
     });
   };
+});
+
+app.directive("moviePopover", function () {
+  return {
+    restrict: 'E',
+    template: '<aside class="movies__popover" ng-class="{active: popover}"><h3 class="popover__title">{{ movie.title }} <span class="popover__runtime">{{ movie.runtime }}</span></h3><p class="popover__genre">{{ movie.genre }}</p><p class="popover__plot">{{ movie.plot}} </p><p class="popover__director"><strong>Director: </strong>{{ movie.director }}</p></aside>'
+  }
 });
 
 app.filter('truncate', function () {
