@@ -44,22 +44,8 @@
         <ul>
           <li>
             <div class="search">
-              <input type="search" ng-model="query" ng-keyup="limit = 250">
+              <input type="search" ng-model="query" ng-keyup="limit = 250" placeholder="Search by title">
             </div>
-          </li>
-          <li>
-            <label class="filter__select">
-              <select>
-                <option selected>Filter by genre</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Action">Action</option>
-                <option value="Drama">Drama</option>
-                <option value="Adventure">Adventure</option>
-                <option value="Thriller">Thriller</option>
-                <option value="Crime">Crime</option>
-                <option value="Western">Western</option>
-              </select>
-            </label>
           </li>
           <li ng-class="{active: predicate == '-imdbRating'}"><a class="filter__btn filter--ascending" href ng-click="predicate = '-imdbRating'; limit = 250; reverse=false" title="Sort by highest rating" aria-label="Sort by highest rating">&nbsp;</a></li>
           <li ng-class="{active: predicate == 'imdbRating'}"><a class="filter__btn filter--descending" href ng-click="predicate = 'imdbRating'; limit = 250; reverse=false" title="Sort by lowest rating" aria-label="Sort by lowest rating">&nbsp;</a></li>
