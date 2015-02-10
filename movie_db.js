@@ -12,7 +12,11 @@ module.exports = function(localPath, updateInterval) {
 
   var fetchIds = function(done) {
     debug('fetching movie ids...');
-    got('http://www.imdb.com/chart/top', function (err, data) {
+    got('http://www.imdb.com/chart/top', {
+        headers: {
+          'user-agent': 'https://github.com/johnie/denotes'
+        }
+      }, function (err, data) {
       if (err) return done(err);
 
       var ids = [];
