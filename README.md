@@ -4,8 +4,7 @@
 
 ## Stuff I should do
 
-* Filter by genre
 * Single page for movie
 
 ### LICENCE
-[MIT](https://www.tldrlegal.com/l/mit) © [Johnie Hjelm](http://johnie.se)
+[MIT] © [Johnie Hjelm](http://johnie.se)
