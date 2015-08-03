@@ -1,13 +1,13 @@
-var gulp = require("gulp"),
-    concat = require("gulp-concat"),
-    header = require("gulp-header"),
-    browserSync = require("browser-sync"),
-    reload = browserSync.reload,
-    nodemon = require("gulp-nodemon")
-    stylus = require("gulp-stylus"),
-    uglify = require("gulp-uglify"),
-    package = require("./package.json");
-
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var header = require('gulp-header');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
+var nodemon = require('gulp-nodemon');
+var stylus = require('gulp-stylus');
+var uglify = require('gulp-uglify');
+var package = require('./package.json');
+var PORT = 2500;
 
 
 // Banner using meta data from package.json
@@ -78,7 +78,7 @@ gulp.task('js', function() {
 
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
-    proxy: "localhost:4000",
+    proxy: 'localhost:' + PORT,
     notify: false
   });
 });

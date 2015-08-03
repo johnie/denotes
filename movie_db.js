@@ -1,9 +1,8 @@
-var async   = require('async'),
-    cheerio = require('cheerio'),
-    debug   = require('util').debug,
-    fs      = require('fs'),
-    got     = require('got'),
-    timers  = require('timers');
+var async   = require('async');
+var cheerio = require('cheerio');
+var fs      = require('fs');
+var got     = require('got');
+var timers  = require('timers');
 
 module.exports = function(localPath, updateInterval) {
   var self = this;
@@ -11,7 +10,7 @@ module.exports = function(localPath, updateInterval) {
   self.movies = fs.existsSync(localPath) ? require(localPath) : {};
 
   var fetchIds = function(done) {
-    debug('fetching movie ids...');
+    console.log('fetching movie ids...');
     got('http://www.imdb.com/chart/top', {
         headers: {
           'user-agent': 'https://github.com/johnie/denotes'
@@ -26,14 +25,14 @@ module.exports = function(localPath, updateInterval) {
         ids.push(/\/(.+)\//.exec(el.attribs.href)[0].split('/')[2]);
       });
 
-      debug('got ' + ids.length + ' ids');
+      console.log('got ' + ids.length + ' ids');
 
       done(null, ids);
     });
   }
 
   var fetchMovies = function(ids, done) {
-    debug('fetching movies...');
+    console.log('fetching movies...');
 
     var fetchers = {};
 

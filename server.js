@@ -1,11 +1,9 @@
-var got = require('got'),
-    cheerio = require('cheerio'),
-    nunjucks = require('nunjucks'),
-    express = require('express'),
-    bodyParser = require('body-parser'),
-    app = express(),
-    MovieDb = require('./movie_db'),
-    port = parseInt(process.env.PORT, 10) || 4000;
+var nunjucks = require('nunjucks');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+var MovieDb = require('./movie_db');
+var port = parseInt(process.env.PORT, 10) || 4000;
 
 nunjucks.configure('views', {
   autoescape: true,
